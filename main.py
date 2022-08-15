@@ -27,7 +27,7 @@ Base = declarative_base()
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 
 # REMOTE:
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL1")
 
 # Change to Postgres for Heroku deployment, but run as sqlite if running locally - not working
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///blog.db")
@@ -268,4 +268,4 @@ def delete_post(post_id):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)
