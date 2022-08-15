@@ -18,7 +18,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
-# for creating relation between dbs w sqlalchemy
+# for creating relation between dbs w/ sqlalchemy
 Base = declarative_base()
 
 # ---------CONNECT TO DB ------------ #
