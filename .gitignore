@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,flask
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,flask
 
+pipfile.lock
+
 ### Flask ###
 instance/*
 !instance/.gitignore
@@ -10,6 +12,7 @@ instance/*
 ### Flask.Python Stack ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
+__pycache__
 *.py[cod]
 *$py.class
 
