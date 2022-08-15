@@ -119,7 +119,8 @@ class BlogPost(db.Model):
 
     comments = relationship("Comment", back_populates="parent_post")
 
-# db.create_all()
+
+db.create_all()
 
 
 @app.route('/')
