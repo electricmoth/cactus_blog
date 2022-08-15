@@ -32,7 +32,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 # Change to Postgres for Heroku deployment, but run as sqlite if running locally - not working
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///blog.db")
 
-
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -269,4 +268,4 @@ def delete_post(post_id):
 
 
 if __name__ == "__main__":
-    app.run(host='localhost', port=5555, debug=True)
+    app.run(host='0.0.0.0', port=5000)
