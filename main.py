@@ -12,7 +12,6 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from flask_gravatar import Gravatar
 import os
 
-# installed gunicorn-20.1.0
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
@@ -22,10 +21,18 @@ Bootstrap(app)
 # for creating relation between dbs w sqlalchemy
 Base = declarative_base()
 
-##CONNECT TO DB
+# ---------CONNECT TO DB ------------ #
+
+# LOCAL:
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
-# Change to Postgres for Heroku deployment, but run as sqlite if running locally
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///blog.db')
+
+# REMOTE:
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+
+# Change to Postgres for Heroku deployment, but run as sqlite if running locally - not working
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///blog.db")
+
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -262,4 +269,4 @@ def delete_post(post_id):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='localhost', port=5555, debug=True)
